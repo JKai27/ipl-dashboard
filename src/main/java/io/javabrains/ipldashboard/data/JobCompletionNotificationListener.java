@@ -59,9 +59,7 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
 
             log.info("🔵 Teams prepared for persistence: {}", teamData.size());
             teamData.values().forEach(team -> log.info("Persisting Team: {}, Matches: {}, Wins: {}", team.getTeamName(), team.getTotalMatches(), team.getTotalWins()));
-            System.out.println("**************************************"+teamData.isEmpty()+"*********************************************");
             teamService.saveTeams(teamData.values());
-
             log.info("✅ Successfully persisted all teams!");
         }
     }
