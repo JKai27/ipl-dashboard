@@ -5,3 +5,7 @@
   text-align: left;
 }
 
+body {
+  background-color: white;  /* Change to your preferred color */
+  color: black; /* Ensure text is visible */
+}
