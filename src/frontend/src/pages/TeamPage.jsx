@@ -4,6 +4,7 @@ import {MatchSmallCard} from "../components/MatchSmallCard.jsx";
 import {MatchDetailCard} from "../components/MatchDetailCard.jsx";
 import {PieChart} from "react-minimal-pie-chart";
 import './TeamPage.scss'
+import {Link} from "react-router-dom";
 
 export const TeamPage = () => {
 
@@ -12,12 +13,12 @@ export const TeamPage = () => {
 
     useEffect(
         () => {
-            const fetchMatches = async () => {
+            const fetchTeam = async () => {
                 const response = await fetch(`http://localhost:8080/team/${teamName}`);
                 const data = await response.json();
                 setTeam(data);
             };
-            fetchMatches();
+            fetchTeam();
 
 
         }, [teamName]
@@ -50,7 +51,7 @@ export const TeamPage = () => {
                 .map(match => <MatchSmallCard teamName={team.teamName} key={match.id} match={match}/>)}
 
             <div className="more-link">
-                <a href='#'>More ></a>
+                <Link to={`/teams/${teamName}/matches/${import.meta.env.VITE_DATA_END_YEAR}`}>More &gt;</Link>
             </div>
         </div>
     )
